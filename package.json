@@ -1,5 +1,6 @@
 {
-  "name": "react-components",
+
+  "name": "@kgaulin/kg-components",
   "version": "1.0.3",
   "type": "module",
   "files": [
