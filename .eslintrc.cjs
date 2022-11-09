@@ -9,7 +9,7 @@ module.exports = {
   ],
   overrides: [
   ],
-  ignorePatterns: ["**/vite-env.d.ts"],
+  ignorePatterns: ["**/vite-env.d.ts", "**/custom-queries.ts", "**/test-utils.ts"],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',

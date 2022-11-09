@@ -12,7 +12,8 @@ const queryAllByDataCy = (
   container: HTMLElement,
   id: Matcher,
   options?: MatcherOptions | undefined
-) => queryHelpers.queryAllByAttribute("data-cy", container, id, options);
+): HTMLElement[] =>
+  queryHelpers.queryAllByAttribute("data-cy", container, id, options);
 
 const getMultipleError = (c: any, dataCyValue: any) =>
   `Found multiple elements with the data-cy attribute of: ${dataCyValue}`;

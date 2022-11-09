@@ -1,30 +1,30 @@
-import React, { ReactElement } from "react";
-import { animated } from "@react-spring/web";
-import { useButtonPressAnimation } from "../../../hooks/animations/useButtonPressAnimation";
-import { CircularProgress } from "../../progress/circularProgress/CircularProgress";
+import React, { ReactElement } from 'react'
+import { animated } from '@react-spring/web'
+import { useButtonPressAnimation } from '../../../hooks/animations/useButtonPressAnimation'
+import { CircularProgress } from '../../progress/circularProgress/CircularProgress'
 
 interface RectProps {
-  color?: "primary" | "secondary" | "tertiary";
+  color?: 'primary' | 'secondary' | 'tertiary'
 
-  size?: "small" | "medium" | "large";
+  size?: 'small' | 'medium' | 'large'
 
-  label: string;
+  label: string
 
-  disabled?: boolean;
+  disabled?: boolean
 
-  loading?: boolean;
+  loading?: boolean
 
-  appendIcon?: ReactElement;
+  appendIcon?: ReactElement
 
-  trailingIcon?: ReactElement;
+  trailingIcon?: ReactElement
 
-  onClick?: () => void;
+  onClick?: () => void
 }
 
 export const Rect = ({
   label,
-  color = "primary",
-  size = "medium",
+  color = 'primary',
+  size = 'medium',
   disabled = false,
   loading = false,
   ...props
@@ -32,37 +32,37 @@ export const Rect = ({
   const buttonStyles = {
     colors: {
       primary: `bg-inverse-primary text-inverse-primary ${
-        !loading ? "active:shadow-inner-20" : ""
+        !loading ? 'active:shadow-inner-20' : ''
       }`,
       secondary: `bg-tertiary text-primary ${
-        !loading ? "active:shadow-inner-8" : ""
+        !loading ? 'active:shadow-inner-8' : ''
       }`,
       tertiary: `bg-overlay-art text-primary ${
-        !loading ? "active:bg-overlay-light " : ""
-      }`,
+        !loading ? 'active:bg-overlay-light ' : ''
+      }`
     },
     size: {
-      small: "px-1 py-1 h-[48px] min-w-[256px]",
-      medium: "px-2 py-2 h-[56px] min-w-[256px]",
-      large: "px-2 py-2 h-[56px] min-w-[343px]",
-    },
-  };
+      small: 'px-1 py-1 h-[48px] min-w-[256px]',
+      medium: 'px-2 py-2 h-[56px] min-w-[256px]',
+      large: 'px-2 py-2 h-[56px] min-w-[343px]'
+    }
+  }
 
-  const [springs, startAnimation] = useButtonPressAnimation();
+  const [springs, startAnimation] = useButtonPressAnimation()
 
   const handleClick = (): void => {
     if (!disabled && !loading) {
-      startAnimation();
+      startAnimation()
       if (props?.onClick != null) {
-        props.onClick();
+        props.onClick()
       }
     }
-  };
+  }
 
   return (
     <animated.button
       className={`${buttonStyles.colors[color]} ${buttonStyles.size[size]} ${
-        props.trailingIcon != null ? "pr-4" : ""
+        props.trailingIcon != null ? 'pr-4' : ''
       } relative flex cursor-pointer  justify-center rounded-none border-0 disabled:cursor-not-allowed disabled:bg-overlay-art disabled:text-state-disabled`}
       style={{ ...springs }}
       onClick={handleClick}
@@ -76,5 +76,5 @@ export const Rect = ({
         <span className="absolute right-3">{props.trailingIcon}</span>
       )}
     </animated.button>
-  );
-};
+  )
+}
