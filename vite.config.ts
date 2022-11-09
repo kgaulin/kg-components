@@ -10,7 +10,7 @@ export default defineConfig({
       entry: resolve(__dirname, "src/main.ts"),
       name: "react-components",
       // the proper extensions will be added
-      fileName: (format) => `my-lib.${format}.js`,
+      fileName: (format) => `index.${format}.js`,
       formats: ["es", "umd"],
     },
     rollupOptions: {
